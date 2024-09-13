@@ -1,22 +1,26 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { TextInput, Button, Text, Appbar } from "react-native-paper";
+import { View, Text } from "react-native";
+import { TextInput, Button, Appbar } from "react-native-paper";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
       {/* Header */}
-      <Appbar.Header style={{ backgroundColor: "#6200ee" }}>
+      <Appbar.Header style={{ backgroundColor: "#b71c1c" }}>
         <Appbar.Content title="Login" />
       </Appbar.Header>
 
       {/* Form */}
-      <View style={styles.formContainer}>
+      <View style={{
+        flex: 1,
+        justifyContent: 'center', // Center the form vertically
+        paddingHorizontal: 20,
+      }}>
         {/* Email Input */}
         <TextInput
           label="Email"
           mode="outlined"
-          style={styles.input}
+          style={{ marginBottom: 20 }}
           autoCompleteType="email"
         />
 
@@ -25,57 +29,51 @@ const Login = () => {
           label="Password"
           mode="outlined"
           secureTextEntry
-          style={styles.input}
+          style={{ marginBottom: 20 }}
           autoCompleteType="password"
         />
 
         {/* Forgot Password */}
-        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        <Text style={{
+          textAlign: "right",
+          color: "#b71c1c",
+          marginBottom: 20,
+        }}>
+          Forgot Password?
+        </Text>
 
         {/* Login Button */}
-        <Button mode="contained" style={styles.loginButton}>
+        <Button
+          mode="contained"
+          style={{
+            marginTop: 10,
+            backgroundColor: "#b71c1c",
+          }}
+          onPress={() => navigation.navigate('signup')}
+        >
           Login
         </Button>
 
         {/* Signup Link */}
-        <View style={styles.signupContainer}>
+        <View style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          marginTop: 20,
+        }}>
           <Text>Don’t have an account? </Text>
-          <Text style={styles.signupText}>Sign Up</Text>
+          <Text
+            style={{
+              color: "#b71c1c",
+              fontWeight: "bold",
+            }}
+            onPress={() => navigation.navigate('signup')}
+          >
+            Sign Up
+          </Text>
         </View>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f5f5f5",
-  },
-  formContainer: {
-    padding: 20,
-    marginTop: 50,
-  },
-  input: {
-    marginBottom: 20,
-  },
-  forgotPassword: {
-    textAlign: "right",
-    color: "#6200ee",
-    marginBottom: 20,
-  },
-  loginButton: {
-    marginTop: 10,
-  },
-  signupContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 20,
-  },
-  signupText: {
-    color: "#6200ee",
-    fontWeight: "bold",
-  },
-});
 
 export default Login;
