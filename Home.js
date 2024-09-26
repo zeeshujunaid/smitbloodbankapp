@@ -1,132 +1,36 @@
-import React from 'react';
-import { View, Text, Image, Dimensions, ScrollView, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View } from "react-native";
+import Bottombar from "./components/bottombar";
+import SearchBar from "./components/searchbar";
 
-const Home = () => {
+function Home({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Navbar */}
-      <View style={styles.navbar}>
-        <Text style={styles.navbarTitle}>Blood Bank App</Text>
-        <View style={styles.navbarActions}>
-          <TouchableOpacity onPress={() => console.log('Profile')}>
-            <Text style={styles.navbarButton}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => console.log('Logout')}>
-            <Text style={styles.navbarButton}>Logout</Text>
-          </TouchableOpacity>
-        </View>
+    <View style={{ flex: 1 ,  backgroundColor: '#F7F7F7',}}>
+      <View
+        style={{
+          height: "16%",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: '#008080',
+          zIndex: 1,
+          gap:5,
+          paddingTop:5,
+        }}
+      >
+        <Text style={{ color: "white",   }}>PANDA CHAT</Text>
+      <View style={{ width:"100%", backgroundColor:"none", paddingLeft:30,}}>
+        <SearchBar />
+      </View>
       </View>
 
-      {/* Content */}
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        {/* First Image Section */}
-        <View style={styles.imageSection}>
-          <Image
-            style={styles.image}
-            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOV1yncgK5JEZQbspnBt4TE0mx35tvEAI8cQ&s' }}
-          />
-          <Text style={styles.imageTitle}>Blood Donation Saves Lives</Text>
-          <Text style={styles.imageText}>
-            Every unit of blood donated can help save up to three lives. Blood is essential for surgeries, trauma care, and treating chronic conditions.
-          </Text>
-        </View>
 
-        {/* Request Blood Button */}
-        <TouchableOpacity style={styles.requestButton} onPress={() => console.log('Request Blood')}>
-          <Text style={styles.requestButtonText}>Request Blood</Text>
-        </TouchableOpacity>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center",backgroundColor:"#F7F7F7", }}>
+        <Text style={{color:"#333333",}}>HELLO THIS IS HOME PAGE PLZ ADD USER TO CHAT</Text>
+      </View>
 
-        {/* Second Image Section */}
-        <View style={styles.imageSection}>
-          <Image
-            style={styles.image}
-            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3FFsidwrd-urXapLnq_zyfzq20bpCBlZlYQ&s' }}
-          />
-          <Text style={styles.imageTitle}>Be a Hero, Donate Blood</Text>
-          <Text style={styles.imageText}>
-            Donating blood has numerous benefits. It not only helps save lives but also can improve the donor’s health.
-          </Text>
-        </View>
-
-        {/* Third Image Section */}
-        <View style={styles.imageSection}>
-          <Image
-            style={styles.image}
-            source={{ uri: 'https://s3.eu-west-2.amazonaws.com/img.creativepool.com/files/candidate/portfolio/full/1914851.jpg' }}
-          />
-          <Text style={styles.imageTitle}>Make a Difference Today</Text>
-          <Text style={styles.imageText}>
-            Your donation makes a big difference in the lives of those in need. Get involved and make an impact.
-          </Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+      <Bottombar navigation={navigation} />
+    </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  navbar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    textAlign:'center',
-    backgroundColor: '#b71c1c',
-    height:90,
-  },
-  navbarTitle: {
-    fontSize: 20,
-    paddingTop:10,
-    color: '#fff',
-    alignItems:'center',
-    fontWeight: 'bold',
-    paddingLeft:5,
-  },
-  navbarActions: {
-    flexDirection: 'row',
-  },
-  navbarButton: {
-    color: '#fff',
-    fontSize: 16,
-    marginLeft: 26,
-    paddingTop:10,
-  },
-  contentContainer: {
-    padding: 20,
-  },
-  imageSection: {
-    marginBottom: 20,
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    height: 200,
-    marginBottom: 10,
-  },
-  imageTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-    textAlign: 'center',
-  },
-  imageText: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  requestButton: {
-    backgroundColor: '#b71c1c',
-    padding: 15,
-    borderRadius: 5,
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  requestButtonText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-});
+}
 
 export default Home;
