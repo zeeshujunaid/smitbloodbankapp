@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, View, Image, TouchableOpacity, Alert,ImageBackground  } from "react-native";
+import { Text, View, Image, TouchableOpacity, Alert,  } from "react-native";
 import { TextInput } from "react-native-paper";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";

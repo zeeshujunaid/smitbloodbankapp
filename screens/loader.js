@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { View, Image, } from "react-native"
+import { View, Image,Text } from "react-native"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 function Loader({navigation}) {
     useEffect(()=>{
@@ -16,7 +16,7 @@ function Loader({navigation}) {
             
         )
     }
-    // console.log(checkUser);
+    console.log(checkUser);
     
 
     return (
@@ -25,6 +25,7 @@ function Loader({navigation}) {
                 source={{ uri: 'https://cdn.dribbble.com/users/940782/screenshots/2715943/pandadribbble.gif' }} // Replace with your image URL
                 style={{ height: "50%", width: "100%", objectFit: "contain", }}
             />
+            <Text style={{fontSize: 24,  color:"black",}}>loading...</Text>
         </View>
     )
 }

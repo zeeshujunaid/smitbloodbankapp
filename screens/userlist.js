@@ -1,4 +1,4 @@
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView,Image } from "react-native";
 import Bottombar from "../components/bottombar";
 import { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
@@ -10,6 +10,8 @@ import { TouchableOpacity } from "react-native";
 
 function Userlist({ navigation }) {
     const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
         getUsers();
@@ -17,6 +19,7 @@ function Userlist({ navigation }) {
 
     const getUsers = async () => {
         const list = [];
+    setIsLoading(true); 
         try {
             const dbSnap = await getDocs(collection(db, 'users'));
             dbSnap.forEach(item => {
@@ -25,8 +28,22 @@ function Userlist({ navigation }) {
             setUsers(list);
         } catch (error) {
             console.error("Error fetching users:", error);
-        }
+        }finally {
+            setIsLoading(false); 
+          }
     };
+
+
+    if (isLoading) {
+        return (
+          <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }}>
+            <Image
+              source={{ uri: 'https://cdn.dribbble.com/users/940782/screenshots/2715943/pandadribbble.gif' }} 
+              style={{ height: "50%", width: "100%", resizeMode: "contain" }}
+            />
+          </View>
+        );
+      }
 
     return (
         <View style={{ flex: 1 }}>
