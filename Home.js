@@ -55,7 +55,7 @@ function Home({ navigation }) {
                       <Text style={{ color: "#333333" }}>{item.name}</Text>
                       <Text style={{ color: "#333333" }}>{item.city}</Text>
                       <TouchableOpacity >
-                              <Icon name="plus-box" size={32} color="#000000" />
+                              <Icon name="chat" size={32} color="#000000" />
                       </TouchableOpacity>
                   </View>
               ))}
