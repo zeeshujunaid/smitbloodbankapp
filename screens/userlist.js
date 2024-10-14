@@ -1,5 +1,5 @@
 import { Text, View, ScrollView,Image } from "react-native";
-import Bottombar from "../components/bottombar";
+// import Bottombar from "../components/bottombar";
 import { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../database/firebase.config";
@@ -62,7 +62,7 @@ function Userlist({ navigation }) {
                     </View>
                 ))}
             </ScrollView>
-            <Bottombar navigation={navigation} />
+            {/* <Bottombar navigation={navigation} /> */}
         </View>
     );
 }
