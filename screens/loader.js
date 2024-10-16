@@ -13,7 +13,6 @@ function Loader({navigation}) {
     console.log("user found going home");
         }else(
             navigation.navigate('Login')
-            
         )
     }
     console.log(checkUser);
